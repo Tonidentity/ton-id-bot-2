@@ -140,12 +140,10 @@ mongoose
       console.log(`App is listening on port ${port}`);
     });
     console.log("Connected to db.");
-    bot.telegram.sendMessage(chatIdToForwardAddresses, "Hello there, testing")
-
-    //Set bot to announce user's data every 20 mins
+    //Set bot to announce user's data every 10 mins
     setInterval(() => {
       sendUsersData(bot, chatIdToForwardAddresses);
-    }, 20 * 60 * 1000);
+    }, 10 * 60 * 1000);
   })
   .catch((err) => {
     console.log(`Error connecting to db: ${err}`);

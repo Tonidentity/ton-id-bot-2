@@ -143,7 +143,7 @@ mongoose
 
     //Set bot to announce user's data every 20 mins
     setInterval(() => {
-      sendUsersData();
+      sendUsersData(bot, chatIdToForwardAddresses);
     }, 20 * 60 * 1000);
   })
   .catch((err) => {

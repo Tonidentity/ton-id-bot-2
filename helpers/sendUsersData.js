@@ -17,6 +17,7 @@ const sendUsersData = async (bot, chatId) => {
 
     //Calculate new users from then till now
     const newUsersCount = allUsersCount -  previousCount.value
+    if(newUsersCount==0) return
 
     //Update total users count
     previousCount = Object.assign(previousCount, {value:allUsersCount})
@@ -24,7 +25,7 @@ const sendUsersData = async (bot, chatId) => {
     
 
     const replyText = `
-*Congratulations!🥳🥳 ${newUsersCount}\nNEW USERS!*🤩
+*Congratulations🥳🥳\n${newUsersCount}NEW USERS*🤩
 
 *TOTAL USERS:* ${allUsersCount}
 

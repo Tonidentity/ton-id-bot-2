@@ -5,29 +5,30 @@ const sendUsersData = async (bot, chatId) => {
   try {
     const allUsers = await BotUser.find();
     const allUsersCount = allUsers.length;
+
     let amountEarned = 0;
     allUsers.forEach((eachUser) => {
       amountEarned += eachUser.balance;
     });
 
-
     //Fetch last saved total users
-    const lastUsersCount = await lastCount.find()
+    let lastUsersCount = await lastCount.find()
+    let previousCount = lastUsersCount[0]
 
     //Calculate new users from then till now
-    const newUsersCount = allUsersCount -  lastUsersCount.value
+    const newUsersCount = allUsersCount -  previousCount.value
 
     //Update total users count
-    lastUsersCount = Object.assign(lastUsersCount, {value:allUsersCount})
-    await lastUsersCount.save()
+    previousCount = Object.assign(previousCount, {value:allUsersCount})
+    await previousCount.save()
     
 
     const replyText = `
-*Congratulations!🥳🥳 ${newUsersCount} NEW USERS!!* 😎😎
+*Congratulations!🥳🥳 ${newUsersCount}\nNEW USERS!*🤩
 
 *TOTAL USERS:* ${allUsersCount}
 
-*AMOUNT EARNED BY ALL USERS:* ${amountEarned}
+*AMOUNT EARNED BY ALL USERS:* ${amountEarned.toLocaleString()} TFT
 
 `;
 

@@ -139,11 +139,13 @@ mongoose
     app.listen(port, () => {
       console.log(`App is listening on port ${port}`);
     });
+
     console.log("Connected to db.");
-    //Set bot to announce user's data every 10 mins
-    setInterval(() => {
-      sendUsersData(bot, chatIdToForwardAddresses);
-    }, 10 * 60 * 1000);
+    //Set bot to announce user's data every 5 mins
+    const interval = 5 * 60 * 1000 //
+    setInterval( async () => {
+      await sendUsersData(bot, chatIdToForwardAddresses);
+    }, interval);
   })
   .catch((err) => {
     console.log(`Error connecting to db: ${err}`);

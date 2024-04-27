@@ -25,7 +25,9 @@ const sendUsersData = async (bot, chatId) => {
     
 
     const replyText = `
-*Congratulations*🥳🥳\n*${newUsersCount}* NEW USERS🤩
+*Congratulations*🥳🥳
+
+*${newUsersCount}* NEW USERS🤩
 
 TOTAL USERS: *${allUsersCount}*
 

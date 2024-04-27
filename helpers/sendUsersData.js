@@ -25,13 +25,11 @@ const sendUsersData = async (bot, chatId) => {
     
 
     const replyText = `
-*Congratulations🥳🥳\n${newUsersCount}NEW USERS*🤩
+*Congratulations*🥳🥳\n*${newUsersCount}* NEW USERS🤩
 
-*TOTAL USERS:* ${allUsersCount}
+TOTAL USERS: *${allUsersCount}*
 
-*AMOUNT EARNED BY ALL USERS:* ${amountEarned.toLocaleString()} TFT
-
-`;
+AMOUNT EARNED BY ALL USERS: *${amountEarned.toLocaleString()} TFT*`;
 
 bot.telegram.sendMessage(chatId, replyText, {parse_mode:"Markdown"})
   } catch (error) {
